@@ -1,6 +1,15 @@
 import React from 'react';
-import { TextField, Stack, Button, Grid, Typography, Link } from '@mui/material';
+import { 
+  TextField, 
+  Stack, 
+  Button, 
+  Grid, 
+  Typography, 
+  Link, 
+ } from '@mui/material';
+
 import DogHouse from '../assets/dog-house.svg';
+// import AppBar from './AppBar';
 
 function LoginPage() {
 
@@ -13,6 +22,7 @@ function LoginPage() {
     alignItems="center"
     justifyContent="center"
     style={{ minHeight: '100vh' }}>
+       
 
       <Grid item xs={3}>
         <img src={DogHouse} alt='shelter logo' style={{
