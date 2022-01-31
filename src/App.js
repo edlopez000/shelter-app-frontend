@@ -6,17 +6,10 @@ import { Container } from '@mui/material';
 
 function App() {
   return (
-    // <Container maxWidth='sm'>
-
-    <div className="App">
-      <header className="App-header">
+    <Container maxWidth="sm">
       <ButtonAppBar />
-        <p>
-          <LoginPage />
-        </p>
-      </header>
-    </div>
-    // </Container>
+      <LoginPage />
+    </Container>
   );
 }
 

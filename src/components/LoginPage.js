@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { 
   TextField, 
   Stack, 
@@ -10,10 +11,31 @@ import {
  } from '@mui/material';
 
 import DogHouse from '../assets/dog-house.svg';
+=======
+import {
+  TextField,
+  Stack,
+  Button,
+  Typography,
+  Link,
+  SvgIcon,
+  Box,
+} from '@mui/material';
+import { ReactComponent as DogHouse } from '../assets/dog-house.svg';
+import { useForm } from 'react-hook-form';
+>>>>>>> 2feb267b968b3d1d1daf2110768026c366a9cae9
 
 function LoginPage() {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm();
 
+  const onSubmit = (data) => console.log(data);
 
+<<<<<<< HEAD
   return(
     <Container maxWidth='sm'>
 
@@ -51,12 +73,65 @@ function LoginPage() {
               variant="contained">
                 Login
               </Button>
+=======
+  return (
+    <Box>
+      <Stack
+      // sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      // Above line makes everything vertically align but makes them way smaller
+      >
+        <SvgIcon
+          component={DogHouse}
+          inheritViewBox
+          sx={{
+            fontSize: 200,
+          }}
+        />
+        <Typography textAlign={'center'} variant="h5">
+          Shelter Volunteer App
+        </Typography>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Stack>
+            <TextField
+              label="Email"
+              variant="filled"
+              {...register('email', { required: true })}
+            />
+            <Typography sx={{ color: 'red', textAlign: 'center' }}>
+              {errors?.email && 'Email is required'}
+            </Typography>
+            <TextField
+              label="Password"
+              type="password"
+              variant="filled"
+              {...register('password')}
+            />
+>>>>>>> 2feb267b968b3d1d1daf2110768026c366a9cae9
 
-        </Stack>
+            <Link
+              href="#"
+              underline="hover"
+              sx={{
+                textAlign: 'center',
+              }}
+            >
+              Forgot My Password
+            </Link>
 
+<<<<<<< HEAD
        </Grid> 
        </Container>
       )
+=======
+            <Button variant="contained" type="submit">
+              Login
+            </Button>
+          </Stack>
+        </form>
+      </Stack>
+    </Box>
+  );
+>>>>>>> 2feb267b968b3d1d1daf2110768026c366a9cae9
 }
 
 export default LoginPage;
