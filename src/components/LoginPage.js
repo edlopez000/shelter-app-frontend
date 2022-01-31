@@ -6,15 +6,17 @@ import {
   Grid, 
   Typography, 
   Link, 
+  Container
  } from '@mui/material';
 
 import DogHouse from '../assets/dog-house.svg';
-// import AppBar from './AppBar';
 
 function LoginPage() {
 
 
   return(
+    <Container maxWidth='sm'>
+
     <Grid
     container
     spacing={0}
@@ -22,16 +24,18 @@ function LoginPage() {
     alignItems="center"
     justifyContent="center"
     style={{ minHeight: '100vh' }}>
-       
+      
+      
 
-      <Grid item xs={3}>
-        <img src={DogHouse} alt='shelter logo' style={{
+       <Grid item xs={3}>
+            <img src={DogHouse} alt='shelter logo' style={{
           display: 'block',
           'margin-left': 'auto',
           'margin-right': 'auto',
           width: '100%'}}/>
-          </Grid>
+           </Grid>
         <Stack className='LoginBox' spacing={2}>
+      
           <Typography variant="h5">Shelter Volunteer App</Typography>
 
             <TextField label="E-mail" variant="filled"/>
@@ -50,7 +54,8 @@ function LoginPage() {
 
         </Stack>
 
-      </Grid> 
+       </Grid> 
+       </Container>
       )
 }
 
