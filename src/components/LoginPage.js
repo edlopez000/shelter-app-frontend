@@ -1,57 +1,74 @@
-import React from 'react';
-import { 
-  TextField, 
-  Stack, 
-  Button, 
-  Grid, 
-  Typography, 
-  Link, 
- } from '@mui/material';
-
-import DogHouse from '../assets/dog-house.svg';
-// import AppBar from './AppBar';
+import React, { useState } from 'react';
+import {
+  TextField,
+  Stack,
+  Button,
+  Typography,
+  Link,
+  SvgIcon,
+  Box,
+} from '@mui/material';
+import { ReactComponent as DogHouse } from '../assets/dog-house.svg';
 
 function LoginPage() {
+  const [email, setEmail, password, setPassword] = useState('');
 
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
 
-  return(
-    <Grid
-    container
-    spacing={0}
-    direction="column"
-    alignItems="center"
-    justifyContent="center"
-    style={{ minHeight: '100vh' }}>
-       
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  };
 
-      <Grid item xs={3}>
-        <img src={DogHouse} alt='shelter logo' style={{
-          display: 'block',
-          'margin-left': 'auto',
-          'margin-right': 'auto',
-          width: '100%'}}/>
-          </Grid>
-        <Stack className='LoginBox' spacing={2}>
-          <Typography variant="h5">Shelter Volunteer App</Typography>
+  return (
+    <Box>
+      <Stack
+      // sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      // Above line makes everything vertically align but makes them way smaller
+      >
+        <SvgIcon
+          component={DogHouse}
+          inheritViewBox
+          sx={{
+            fontSize: 200,
+          }}
+        />
+        <Typography textAlign={'center'} variant="h5">
+          Shelter Volunteer App
+        </Typography>
+        <TextField
+          required
+          label="E-mail"
+          variant="filled"
+          value={email}
+          onChange={handleEmail}
+        />
+        <TextField
+          required
+          label="Password"
+          type="password"
+          variant="filled"
+          value={password}
+          onChange={handlePassword}
+        />
 
-            <TextField label="E-mail" variant="filled"/>
+        <Link
+          href="#"
+          underline="hover"
+          sx={{
+            textAlign: 'center',
+          }}
+        >
+          Forgot My Password
+        </Link>
 
-            <TextField label="Password" type="password" variant="filled"/>
-          
-            <Link underline='hover' sx={{
-              'text-align': 'center'
-            }}>Forgot My Password</Link>
-
-              <Button 
-              onClick={()=> console.log("The Rural Juror")}
-              variant="contained">
-                Login
-              </Button>
-
-        </Stack>
-
-      </Grid> 
-      )
+        <Button variant="contained" type="submit">
+          Login
+        </Button>
+      </Stack>
+    </Box>
+  );
 }
 
 export default LoginPage;

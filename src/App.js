@@ -2,18 +2,14 @@
 // import './App.css';
 import LoginPage from './components/LoginPage.js';
 import ButtonAppBar from './components/AppBar.js';
-
+import { Container } from '@mui/material';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <Container maxWidth="sm">
       <ButtonAppBar />
-        <p>
-          <LoginPage />
-        </p>
-      </header>
-    </div>
+      <LoginPage />
+    </Container>
   );
 }
 

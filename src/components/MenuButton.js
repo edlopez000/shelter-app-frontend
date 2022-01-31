@@ -1,10 +1,8 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-
+import MenuIcon from '@mui/icons-material/Menu';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -18,16 +16,16 @@ export default function BasicMenu() {
 
   return (
     <div>
-        <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={handleClick}
-          >
-            <MenuIcon />
-          </IconButton>
+      <IconButton
+        size="large"
+        edge="start"
+        color="inherit"
+        aria-label="menu"
+        sx={{ mr: 2 }}
+        onClick={handleClick}
+      >
+        <MenuIcon />
+      </IconButton>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -37,7 +35,7 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>About</MenuItem>  
+        <MenuItem onClick={handleClose}>About</MenuItem>
         <MenuItem onClick={handleClose}>The Rural Juror</MenuItem>
         <MenuItem onClick={handleClose}>Lawns and Jawns</MenuItem>
         <MenuItem onClick={handleClose}>Wumbo</MenuItem>
