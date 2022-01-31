@@ -11,6 +11,8 @@ import {
 import { ReactComponent as DogHouse } from '../assets/dog-house.svg';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { setState } from 'react';
+
 
 //* THEMING will have to be applied to all pages, current it is 
 //set to backgroundColor=darkblue, buttons and action links fontWeight bold
@@ -25,16 +27,38 @@ function LoginPage() {
     handleSubmit,
     setError,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    criteriaMode: 'all',
+  });
 
   const [
     result, 
     setResult
   ] = useState("");
 
+  const findUser = (userID) => {
+    fetch().then(response => response.json()).then((user) => {
+      if(user != null){
+        this.setState({
+          id: user.id,
+          password: user.password,
+        });
+      }
+    }).catch((error) => {
+      setError
+    });
+  };
    //axios or fetch goes here
   // const onSubmit = (data) => console.log(data);
  
+  React.useEffect(() => {
+    setError("email", {
+      types: {
+        required: "Email is required.",
+        email: "Must use valid email."
+      }
+    });
+  }, [setError])
 
   return (
     <Box marginTop={33}>
