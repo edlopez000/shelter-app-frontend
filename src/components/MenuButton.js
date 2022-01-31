@@ -33,6 +33,8 @@ export default function BasicMenu() {
         onClose={handleClose}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
+          'dense': 'true',
+          'disablePadding': 'true'
         }}
       >
         <MenuItem onClick={handleClose}>About</MenuItem>

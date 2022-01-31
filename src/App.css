@@ -36,21 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-Button {
-  display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 6px 16px;
-
-position: absolute;
-height: 39px;
-left: 41px;
-right: 40px;
-top: 560px;
-
-/* Iris/100 */
-
-background: #6163fff3;
-border-radius: 4px;
-}

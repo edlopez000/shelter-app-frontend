@@ -8,25 +8,18 @@ import MenuButton from './MenuButton';
 
 export default function ButtonAppBar() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar variant="dense">
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
+    <Box sx={{ 
+      flexGrow: 1
+     }}>
+      <AppBar >
+        <Toolbar variant="dense" sx={{backgroundColor: 'darkblue'}}>
           <MenuButton />
           <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1 }}
           ></Typography>
-          <Button color="inherit">Donate</Button>
+          <Button color="inherit" sx={{'font-weight': 'bold'}}>Donate</Button>
         </Toolbar>
       </AppBar>
     </Box>
