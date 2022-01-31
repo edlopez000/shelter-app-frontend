@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   TextField,
   Stack,
@@ -9,17 +9,17 @@ import {
   Box,
 } from '@mui/material';
 import { ReactComponent as DogHouse } from '../assets/dog-house.svg';
+import { useForm } from 'react-hook-form';
 
 function LoginPage() {
-  const [email, setEmail, password, setPassword] = useState('');
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm();
 
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
-  };
+  const onSubmit = (data) => console.log(data);
 
   return (
     <Box>
@@ -37,35 +37,38 @@ function LoginPage() {
         <Typography textAlign={'center'} variant="h5">
           Shelter Volunteer App
         </Typography>
-        <TextField
-          required
-          label="E-mail"
-          variant="filled"
-          value={email}
-          onChange={handleEmail}
-        />
-        <TextField
-          required
-          label="Password"
-          type="password"
-          variant="filled"
-          value={password}
-          onChange={handlePassword}
-        />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Stack>
+            <TextField
+              label="Email"
+              variant="filled"
+              {...register('email', { required: true })}
+            />
+            <Typography sx={{ color: 'red', textAlign: 'center' }}>
+              {errors?.email && 'Email is required'}
+            </Typography>
+            <TextField
+              label="Password"
+              type="password"
+              variant="filled"
+              {...register('password')}
+            />
 
-        <Link
-          href="#"
-          underline="hover"
-          sx={{
-            textAlign: 'center',
-          }}
-        >
-          Forgot My Password
-        </Link>
+            <Link
+              href="#"
+              underline="hover"
+              sx={{
+                textAlign: 'center',
+              }}
+            >
+              Forgot My Password
+            </Link>
 
-        <Button variant="contained" type="submit">
-          Login
-        </Button>
+            <Button variant="contained" type="submit">
+              Login
+            </Button>
+          </Stack>
+        </form>
       </Stack>
     </Box>
   );
