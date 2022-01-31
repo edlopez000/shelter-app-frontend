@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { ReactComponent as DogHouse } from '../assets/dog-house.svg';
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
 //* THEMING will have to be applied to all pages, current it is 
 //set to backgroundColor=darkblue, buttons and action links fontWeight bold
@@ -20,14 +21,19 @@ import { useForm } from 'react-hook-form';
 
 function LoginPage() {
   const {
-    register,
+    register, 
     handleSubmit,
     setError,
     formState: { errors },
   } = useForm();
 
+  const [
+    result, 
+    setResult
+  ] = useState("");
+
    //axios or fetch goes here
-  const onSubmit = (data) => console.log(data);
+  // const onSubmit = (data) => console.log(data);
  
 
   return (
@@ -44,7 +50,7 @@ function LoginPage() {
         <Typography textAlign={'center'} variant="overline" fontSize={19} fontWeight={'bold'}>
           Shelter Volunteer App
         </Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit((data) => setResult(JSON.stringify(data)))}>
           <Stack spacing={1} margin={2}>
             <TextField 
               label="Email"
@@ -82,6 +88,7 @@ function LoginPage() {
                 }}>
               Login
             </Button>
+            <p>{result}</p>
           </Stack>
         </form>
       </Stack>
