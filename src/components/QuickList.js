@@ -11,6 +11,7 @@ import AnimalIcon from "./AnimalIcon";
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 
 export default function QuickLinks() {
+  this.name = "Home";
   return (
     <div>
       <List sx={{ width: "100%", maxWidth: 600, bgcolor: "background.paper" }}>
@@ -18,7 +19,7 @@ export default function QuickLinks() {
         <ListItem alignItems="flex-start">
           <ListItem
             secondaryAction={
-              <IconButton edge="end" aria-label="arrow">
+              <IconButton edge="end" aria-label="delete">
                 <ArrowForwardIosSharpIcon />
               </IconButton>
             }
@@ -39,7 +40,7 @@ export default function QuickLinks() {
         <ListItem alignItems="flex-start">
           <ListItem
             secondaryAction={
-              <IconButton edge="end" aria-label="arrow">
+              <IconButton edge="end" aria-label="delete">
                 <ArrowForwardIosSharpIcon />
               </IconButton>
             }
@@ -60,7 +61,7 @@ export default function QuickLinks() {
         <ListItem alignItems="flex-start">
           <ListItem
             secondaryAction={
-              <IconButton edge="end" aria-label="arrow">
+              <IconButton edge="end" aria-label="delete">
                 <ArrowForwardIosSharpIcon />
               </IconButton>
             }
