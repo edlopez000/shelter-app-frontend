@@ -79,18 +79,6 @@ function LoginPage() {
               FORGOT MY PASSWORD
             </Link>
 
-            <Link
-              href={ QuickLinks }
-              underline="hover"
-              fontSize={12}
-              sx={{
-                textAlign: 'center',
-                color: 'darkblue'
-              }}
-            >
-              CONTINUE WITHOUT LOGIN
-            </Link>
-
             <Button 
               variant="contained" 
               type="submit" 
