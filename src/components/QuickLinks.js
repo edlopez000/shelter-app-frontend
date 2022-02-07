@@ -1,13 +1,26 @@
 import React from "react";
-import { Stack, Box } from "@mui/material";
+import { Stack, SvgIcon } from "@mui/material";
+import { ReactComponent as DogsCategory } from "../assets/border-collie.svg";
+import UserGreeting from "./UserGreeting";
 
-function QuickLinks() {
+const QuickLinks = () => {
   return (
-    <Stack spacing={2}>
-      <p>Dogs</p>
+    <Stack>
+      <UserGreeting />
+       <SvgIcon 
+          component={DogsCategory}       
+          inheritViewBox
+          sx={{
+            fontSize: 115,
+            margin: '0 0 0 0'
+          }}
+          />
+
+
       <p>Cats</p>
       <p>Housekeeping</p>
     </Stack>
   );
 }
+
 export default QuickLinks;
