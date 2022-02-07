@@ -11,7 +11,7 @@ import {
 import { ReactComponent as DogHouse } from '../assets/dog-house.svg';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-
+import QuickLinks from './QuickLinks.js';
 //* THEMING will have to be applied to all pages, current it is 
 //set to backgroundColor=darkblue, buttons and action links fontWeight bold
 //or the equivalent; variant for the main titles are 'overline' 
@@ -77,6 +77,18 @@ function LoginPage() {
               }}
             >
               FORGOT MY PASSWORD
+            </Link>
+
+            <Link
+              href={ QuickLinks }
+              underline="hover"
+              fontSize={12}
+              sx={{
+                textAlign: 'center',
+                color: 'darkblue'
+              }}
+            >
+              CONTINUE WITHOUT LOGIN
             </Link>
 
             <Button 

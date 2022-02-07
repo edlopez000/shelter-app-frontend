@@ -9,8 +9,7 @@ function App() {
   return (
     <Container maxWidth="sm">
       <ButtonAppBar />
-      {/* <LoginPage /> */}
-      <QuickLinks magic="Peach" />
+      < LoginPage />
     </Container>
   );
 }

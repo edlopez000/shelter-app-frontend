@@ -1,22 +1,13 @@
-import react from "react";
-import { Grid } from "@mui/material";
-function QuickLinks(props){
-    console.log(props.magic)
-    return (
-        <Grid container spacing={2}>
-        <Grid item xs={8}>
-          <p>xs=8</p>
-        </Grid>
-        <Grid item xs={4}>
-          <p>xs=4</p>
-        </Grid>
-        <Grid item xs={4}>
-          <p>xs=4</p>
-        </Grid>
-        <Grid item xs={8}>
-          <p>xs=8</p>
-        </Grid>
-      </Grid>
-    )
+import React from "react";
+import { Stack, Box } from "@mui/material";
+
+function QuickLinks() {
+  return (
+    <Stack spacing={2}>
+      <p>Dogs</p>
+      <p>Cats</p>
+      <p>Housekeeping</p>
+    </Stack>
+  );
 }
 export default QuickLinks;
