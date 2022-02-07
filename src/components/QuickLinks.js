@@ -6,8 +6,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
 import Divider from "@mui/material/Divider";
-import UserGreeting from "./UserGreeting";
-import AnimalIcon from "./AnimalIcon";
+import UserGreeting from "./quicklinks/UserGreeting";
+import AnimalIcon from "./quicklinks/AnimalIcon";
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 
 export default function QuickLinks() {
