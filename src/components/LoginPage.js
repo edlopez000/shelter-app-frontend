@@ -45,10 +45,11 @@ function LoginPage() {
         console.log(res.data);
       })
       .catch((error) => {
-        if (error.data === undefined) {
+        if (error.response.status === 500) {
           setSubmitError('Something went wrong. Please try submitting again.');
+        } else {
+          setSubmitError(error.response.data.message);
         }
-        setSubmitError(error.response.data.message);
       });
   };
 
