@@ -11,6 +11,7 @@ import {
 import axios from 'axios';
 import { ReactComponent as DogHouse } from '../assets/dog-house.svg';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 //* THEMING will have to be applied to all pages, current it is
 //set to backgroundColor=darkblue, buttons and action links fontWeight bold
@@ -28,6 +29,8 @@ function LoginPage() {
     criteriaMode: 'all',
   });
 
+  const navigate = useNavigate();
+
   const [submitError, setSubmitError] = useState('');
 
   const onSubmit = (data) => {
@@ -42,13 +45,15 @@ function LoginPage() {
       )
       .then((res) => {
         setSubmitError('');
-        console.log(res.data);
+        if (res.status === 200) {
+          navigate('home', { replace: true });
+        }
       })
       .catch((error) => {
         if (error.response.status === 500) {
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
-          setSubmitError(error.response.data.message);
+          setSubmitError(error.message);
         }
       });
   };
