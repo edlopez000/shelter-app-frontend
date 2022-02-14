@@ -1,7 +1,8 @@
 import * as React from "react";
-import { DogsData } from "../placeholderData/DogsArray";
 import AnimalButton from "./selectAnimal/AnimalButton";
 import { Typography } from "@mui/material";
+
+const dogsData = ["Jenna", "Kenneth", "Grizz", "DotCom"];
 
 export default function SelectDog() {
   return (
@@ -14,10 +15,9 @@ export default function SelectDog() {
       >
         Select a Dog:
       </Typography>
-      {DogsData.map((dog) => (
+      {dogsData.map((dog) => (
         <AnimalButton key={dog} type="dog" animalName={dog} />
       ))}
-      ;
     </>
   );
 }
