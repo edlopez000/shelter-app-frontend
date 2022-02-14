@@ -18,7 +18,8 @@ export default function ButtonAppBar() {
             variant="h6"
             component="div"
             sx={{ flexGrow: 1 }}
-          >Home</Typography>
+          ></Typography>
+          <Button color="inherit" sx={{'font-weight': 'bold'}}>Home</Button>
           <Button color="inherit" sx={{'font-weight': 'bold'}}>Donate</Button>
         </Toolbar>
       </AppBar>

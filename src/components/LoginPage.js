@@ -54,6 +54,7 @@ function LoginPage() {
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
           setSubmitError(error.message);
+          navigate('home', { replace: true });
         }
       });
   };
@@ -61,7 +62,7 @@ function LoginPage() {
   //  error.response.status gives you the 401 HTTP status
 
   return (
-    <Box marginTop={33}>
+    <Box marginTop={23}>
       <Stack spacing={1}>
         <SvgIcon
           component={DogHouse}
