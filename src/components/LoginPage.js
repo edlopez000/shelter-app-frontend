@@ -40,12 +40,12 @@ function LoginPage() {
     fetch().then(response => response.json()).then((user) => {
       if(user != null){
         this.setState({
-          id: user.id,
+          email: user.email,
           password: user.password,
         });
       }
     }).catch((error) => {
-      setError
+      console.error("Error - " + error)
     });
   };
    //axios or fetch goes here
@@ -85,6 +85,7 @@ function LoginPage() {
               {errors?.email && 'Email is required'}
             </Typography>
             <TextField
+              
               label="Password"
               type="password"
               variant="filled"
@@ -112,7 +113,7 @@ function LoginPage() {
                 }}>
               Login
             </Button>
-            <p>{result}</p>
+            <p hidden>{result}</p>
           </Stack>
         </form>
       </Stack>
