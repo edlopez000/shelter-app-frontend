@@ -31,19 +31,6 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
-<<<<<<< HEAD
-  const findUser = (userID) => {
-    fetch().then(response => response.json()).then((user) => {
-      if(user != null){
-        this.setState({
-          email: user.email,
-          password: user.password,
-        });
-      }
-    }).catch((error) => {
-      console.error("Error - " + error)
-    });
-=======
   const [submitError, setSubmitError] = useState('');
 
   const onSubmit = (data) => {
@@ -69,7 +56,6 @@ function LoginPage() {
           setSubmitError(error.message);
         }
       });
->>>>>>> 2831ef1afaa446272007a4b88a7011150f4ea98e
   };
 
   //  error.response.status gives you the 401 HTTP status
@@ -140,10 +126,6 @@ function LoginPage() {
             >
               Login
             </Button>
-<<<<<<< HEAD
-            <p hidden>{result}</p>
-=======
->>>>>>> 2831ef1afaa446272007a4b88a7011150f4ea98e
           </Stack>
         </form>
       </Stack>
