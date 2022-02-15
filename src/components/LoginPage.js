@@ -53,8 +53,7 @@ function LoginPage() {
         if (error.response.status === 500) {
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
-          console.log(JSON.stringify(error));
-          setSubmitError(error.message);
+          setSubmitError(error.response.data.message);
         }
       });
   };
