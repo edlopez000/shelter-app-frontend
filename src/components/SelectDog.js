@@ -1,3 +1,4 @@
+//THIS IS '/dog' PAGE
 import * as React from "react";
 import AnimalButton from "./selectAnimal/AnimalButton";
 import { Typography } from "@mui/material";

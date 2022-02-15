@@ -1,3 +1,4 @@
+//THIS IS '/home' PAGE
 import * as React from "react";
 import {
   Divider,

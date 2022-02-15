@@ -1,3 +1,4 @@
+//THIS IS '/' PAGE
 import React, { useState } from 'react';
 import {
   TextField,
@@ -38,7 +39,7 @@ function LoginPage() {
       .post(
         '/api/auth/signin',
         {
-          username: data.email,
+          username: data.username,
           password: data.password,
         },
         { headers: { 'X-Requested-With': 'XMLHttpRequest' } } // this is bad practice and needs to handled in the backend
@@ -54,7 +55,7 @@ function LoginPage() {
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
           setSubmitError(error.message);
-          navigate('home', { replace: true });
+          
         }
       });
   };
