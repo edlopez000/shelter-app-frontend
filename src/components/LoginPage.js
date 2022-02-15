@@ -54,8 +54,7 @@ function LoginPage() {
         if (error.response.status === 500) {
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
-          setSubmitError(error.message);
-          
+          setSubmitError(error.response.data.message);
         }
       });
   };
@@ -84,12 +83,12 @@ function LoginPage() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Stack spacing={1} margin={2}>
             <TextField
-              label="Email"
+              label="Username"
               variant="filled"
-              {...register('email', { required: true })}
+              {...register('username', { required: true })}
             />
             <Typography sx={{ color: 'red', textAlign: 'center' }}>
-              {errors?.email && 'Email is required'}
+              {errors?.username && 'Username is required'}
             </Typography>
             <TextField
               
