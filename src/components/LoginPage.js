@@ -38,7 +38,7 @@ function LoginPage() {
       .post(
         '/api/auth/signin',
         {
-          username: data.email,
+          username: data.username,
           password: data.password,
         },
         { headers: { 'X-Requested-With': 'XMLHttpRequest' } } // this is bad practice and needs to handled in the backend
@@ -53,6 +53,7 @@ function LoginPage() {
         if (error.response.status === 500) {
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
+          console.log(JSON.stringify(error));
           setSubmitError(error.message);
         }
       });
@@ -82,12 +83,12 @@ function LoginPage() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Stack spacing={1} margin={2}>
             <TextField
-              label="Email"
+              label="Username"
               variant="filled"
-              {...register('email', { required: true })}
+              {...register('username', { required: true })}
             />
             <Typography sx={{ color: 'red', textAlign: 'center' }}>
-              {errors?.email && 'Email is required'}
+              {errors?.username && 'Username is required'}
             </Typography>
             <TextField
               label="Password"

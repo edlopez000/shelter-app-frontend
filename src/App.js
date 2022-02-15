@@ -4,6 +4,7 @@ import ButtonAppBar from './components/AppBar.js';
 import { Container } from '@mui/material';
 import QuickLinks from './components/QuickLinks';
 import { Routes, Route } from 'react-router-dom';
+import SelectDog from './components/SelectDog';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="home" element={<QuickLinks />} />
+        <Route path="dog" element={<SelectDog />} />
       </Routes>
     </Container>
   );

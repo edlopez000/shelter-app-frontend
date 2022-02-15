@@ -1,5 +1,5 @@
-import React from "react";
-import Divider from "@mui/material/Divider";
+import React from 'react';
+import Divider from '@mui/material/Divider';
 import {
   Box,
   List,
@@ -7,17 +7,14 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-} from "@mui/material";
-import AnimalIcon from "../../assets/AnimalIcon";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-
-
+} from '@mui/material';
+import AnimalIcon from '../../assets/AnimalIcon';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 
 const AnimalButton = (props) => {
   return (
     <>
-     
-      <Box sx={{ width: "100%", maxWidth: 360 }}>
+      <Box sx={{ width: '100%', maxWidth: 360 }}>
         <List>
           <ListItem disablePadding className="animal">
             <ListItemButton>
@@ -29,7 +26,7 @@ const AnimalButton = (props) => {
             </ListItemButton>
           </ListItem>
           <Divider />
-     </List>
+        </List>
       </Box>
     </>
   );
