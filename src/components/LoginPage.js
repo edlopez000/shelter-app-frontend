@@ -23,7 +23,6 @@ function LoginPage() {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors },
   } = useForm({
     criteriaMode: 'all',
