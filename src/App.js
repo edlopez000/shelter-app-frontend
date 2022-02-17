@@ -5,6 +5,7 @@ import { Container } from '@mui/material';
 import QuickLinks from './components/QuickLinks';
 import { Routes, Route } from 'react-router-dom';
 import SelectDog from './components/SelectDog';
+import ProtectedRoutes from './components/ProtectedRoutes';
 
 function App() {
   return (
@@ -12,8 +13,10 @@ function App() {
       <ButtonAppBar />
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="home" element={<QuickLinks />} />
-        <Route path="dog" element={<SelectDog />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="home" element={<QuickLinks />} />
+          <Route path="dog" element={<SelectDog />} />
+        </Route>
       </Routes>
     </Container>
   );
