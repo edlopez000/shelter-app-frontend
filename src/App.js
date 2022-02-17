@@ -1,15 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
-import './components/LoginPage.js';
-
+import LoginPage from './components/LoginPage.js';
+import ButtonAppBar from './components/AppBar.js';
+import { Container } from '@mui/material';
+import QuickLinks from './components/QuickLinks';
+import { Routes, Route } from 'react-router-dom';
+import SelectDog from './components/SelectDog';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-     
-      </header>
-    </div>
+    <Container maxWidth="sm">
+      <ButtonAppBar />
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="home" element={<QuickLinks />} />
+        <Route path="dog" element={<SelectDog />} />
+      </Routes>
+    </Container>
   );
 }
 
