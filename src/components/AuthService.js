@@ -1,7 +1,6 @@
 class AuthService {
-  useAuth = () => {
-    const user = { loggedIn: false };
-    console.log(`Logged in value is ${user.loggedIn}`);
+  login = () => {
+    const user = { loggedIn: true }; // This needs to be set by the post request to the login endpoint
     return user && user.loggedIn;
   };
 }
