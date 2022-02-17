@@ -1,7 +1,9 @@
-const useAuth = () => {
-  const user = { loggedIn: false };
-  console.log(`Logged in value is ${user.loggedIn}`);
-  return user && user.loggedIn;
-};
+class AuthService {
+  useAuth = () => {
+    const user = { loggedIn: false };
+    console.log(`Logged in value is ${user.loggedIn}`);
+    return user && user.loggedIn;
+  };
+}
 
-export default useAuth;
+export default new AuthService();

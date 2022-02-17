@@ -19,7 +19,7 @@ import { useNavigate } from 'react-router-dom';
 //* regardless if these are the final design, a global theme will
 // have to be applied in the App.js to streamline and DRY
 
-function LoginPage() {
+function LoginPage(props) {
   const {
     register,
     handleSubmit,
@@ -78,6 +78,14 @@ function LoginPage() {
         >
           Shelter Volunteer App
         </Typography>
+
+        <Typography
+          variant="overline"
+          sx={{ textAlign: 'center', color: 'red' }}
+        >
+          {props.unauthed && 'Unauthorized: Please sign in to access'}
+        </Typography>
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <Stack spacing={1} margin={2}>
             <TextField
