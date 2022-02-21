@@ -5,6 +5,7 @@ import { Container } from '@mui/material';
 import QuickLinks from './components/QuickLinks';
 import { Routes, Route } from 'react-router-dom';
 import SelectDog from './components/SelectDog';
+import SelectCat from './components/SelectCat';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="home" element={<QuickLinks />} />
         <Route path="dog" element={<SelectDog />} />
+        <Route path="cat" element={<SelectCat />} />
+
       </Routes>
     </Container>
   );
