@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   TextField,
   Stack,
@@ -8,10 +8,11 @@ import {
   SvgIcon,
   Box,
 } from '@mui/material';
-import axios from 'axios';
 import { ReactComponent as DogHouse } from '../assets/dog-house.svg';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import AuthService from './AuthService';
+import { UserContext } from './UserContext';
 
 //* THEMING will have to be applied to all pages, current it is
 //set to backgroundColor=darkblue, buttons and action links fontWeight bold
@@ -32,24 +33,22 @@ function LoginPage(props) {
 
   const [submitError, setSubmitError] = useState('');
 
-  const onSubmit = (data) => {
-    axios
-      .post(
-        '/api/auth/signin',
-        {
-          username: data.username,
-          password: data.password,
-        },
-        { headers: { 'X-Requested-With': 'XMLHttpRequest' } } // this is bad practice and needs to handled in the backend
-      )
+  const { setUser } = useContext(UserContext);
+
+  const onSubmit = async (data) => {
+    let res = AuthService.login(data);
+
+    res
       .then((res) => {
         setSubmitError('');
-        if (res.status === 200) {
+        if (res === 200) {
+          setUser({ auth: true });
           navigate('home', { replace: true });
         }
       })
       .catch((error) => {
-        if (error.response.status === 500) {
+        if (error.response.data.status === 500) {
+          // weird issue here with the error object and pointing towards the right thing
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
           setSubmitError(error.response.data.message);

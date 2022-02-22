@@ -1,8 +1,11 @@
+import { useContext } from 'react';
 import { Outlet } from 'react-router';
-import AuthService from './AuthService';
 import LoginPage from './LoginPage';
+import { UserContext } from './UserContext';
 
 export default function ProtectedRoutes() {
-  const isAuth = AuthService.login();
+  const { user } = useContext(UserContext);
+
+  const isAuth = user.auth;
   return isAuth ? <Outlet /> : <LoginPage unauthed={true} />;
 }
