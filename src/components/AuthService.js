@@ -10,7 +10,7 @@ class AuthService {
       },
       { headers: { 'X-Requested-With': 'XMLHttpRequest' } } // this is bad practice and needs to handled in the backend
     );
-    return res.then((res) => res.status);
+    return res.then((res) => res);
   };
 }
 

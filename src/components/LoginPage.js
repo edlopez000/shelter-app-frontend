@@ -41,14 +41,15 @@ function LoginPage(props) {
     res
       .then((res) => {
         setSubmitError('');
-        if (res === 200) {
+        if (res.status === 200) {
           setUser({ auth: true });
           navigate('home', { replace: true });
         }
       })
       .catch((error) => {
-        if (error.response.data.status === 500) {
-          // weird issue here with the error object and pointing towards the right thing
+        console.log(error);
+        debugger;
+        if (error.response.status === 500) {
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
           setSubmitError(error.response.data.message);
