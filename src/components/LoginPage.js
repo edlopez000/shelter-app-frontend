@@ -47,8 +47,6 @@ function LoginPage(props) {
         }
       })
       .catch((error) => {
-        console.log(error);
-        debugger;
         if (error.response.status === 500) {
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
