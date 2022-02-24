@@ -10,7 +10,7 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 
 const AnimalButton = (props) => {
   return (
-    <ListItem disablePadding className="animal">
+    <ListItem disablePadding>
       <ListItemButton>
         <ListItemIcon>
           <AnimalIcon name={props.type} />

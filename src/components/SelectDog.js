@@ -1,10 +1,27 @@
-import * as React from "react";
+import axios from "axios";
 import AnimalButton from "./selectAnimal/AnimalButton";
 import { Typography, List, Divider, Container } from "@mui/material";
-
-const dogsData = ["Jenna", "Kenneth", "Grizz", "DotCom"];
+import { React, useState, useEffect } from "react";
 
 export default function SelectDog() {
+  const [dogs, setDogs] = useState([]);
+  const dogData = dogs.filter((dogs) => dogs.species === "dog");
+  const listDogs = () => {
+    axios
+      .get("/animals")
+      .then((res) => {
+        console.log(res.data);
+        setDogs(res.data);
+      })
+      .catch((error) => {
+        console.log("Something went wrong", error);
+      });
+  };
+
+  useEffect(() => {
+    listDogs();
+  }, []);
+
   return (
     <Container>
       <Typography
@@ -17,9 +34,9 @@ export default function SelectDog() {
       </Typography>
 
       <List sx={{ width: "100%", maxWidth: 600 }}>
-        {dogsData.map((dog) => (
+        {dogData.map((dog) => (
           <>
-            <AnimalButton key={dog} type="dog" animalName={dog} />
+            <AnimalButton key={dog.id} type="dog" animalName={dog.name} />
             <Divider />
           </>
         ))}
