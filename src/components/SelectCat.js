@@ -1,17 +1,20 @@
+// TODO: Figure out Keys Error
+
 import axios from "axios";
 import AnimalButton from "./selectAnimal/AnimalButton";
 import { Typography, List, Divider, Container } from "@mui/material";
 import { React, useState, useEffect } from "react";
 
-export default function SelectDog() {
-  const [dogs, setDogs] = useState([]);
-  const dogData = dogs.filter((dogs) => dogs.species === "dog");
-  const listDogs = () => {
+export default function SelectCat(props) {
+  const [cats, setCats] = useState([]);
+  const catData = cats.filter((cats) => cats.species === "cat"); // TODO: Is this the right place for this logic?
+
+  const listCats = () => {
     axios
       .get("/animals")
       .then((res) => {
         console.log(res.data);
-        setDogs(res.data);
+        setCats(res.data);
       })
       .catch((error) => {
         console.log("Something went wrong", error);
@@ -19,7 +22,7 @@ export default function SelectDog() {
   };
 
   useEffect(() => {
-    listDogs();
+    listCats();
   }, []);
 
   return (
@@ -30,13 +33,13 @@ export default function SelectDog() {
         fontSize={19}
         fontWeight={"bold"}
       >
-        Select a dog:
+        Select a cat:
       </Typography>
 
       <List sx={{ width: "100%", maxWidth: 600 }}>
-        {dogData.map((dog) => (
+        {catData.map((cat) => (
           <>
-            <AnimalButton key={dog.id} type="dog" animalName={dog.name} />
+            <AnimalButton key={cat.id} type="cat" animalName={cat.name} />
             <Divider />
           </>
         ))}

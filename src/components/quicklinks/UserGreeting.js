@@ -1,19 +1,19 @@
-import { Typography } from "@mui/material";
-import React from "react";
+import { Typography } from '@mui/material';
+import React from 'react';
 
 const UserGreeting = () => {
-    const userName = "Peach"
+  const userName = 'Peach';
 
-    return (
-        <Typography 
-        textAlign={'center'} 
-        letterSpacing={.15}
-        fontSize={19} 
-        fontWeight={'bold'}>
-          Hi { userName }!
-        </Typography>
-
-    );
-}
+  return (
+    <Typography
+      textAlign={'center'}
+      letterSpacing={0.15}
+      fontSize={19}
+      fontWeight={'bold'}
+    >
+      Hi {userName}!
+    </Typography>
+  );
+};
 
 export default UserGreeting;

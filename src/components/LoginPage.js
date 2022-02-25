@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   TextField,
   Stack,
@@ -8,10 +8,11 @@ import {
   SvgIcon,
   Box,
 } from '@mui/material';
-import axios from 'axios';
 import { ReactComponent as DogHouse } from '../assets/dog-house.svg';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import AuthService from './AuthService';
+import { UserContext } from './UserContext';
 
 //* THEMING will have to be applied to all pages, current it is
 //set to backgroundColor=darkblue, buttons and action links fontWeight bold
@@ -19,11 +20,10 @@ import { useNavigate } from 'react-router-dom';
 //* regardless if these are the final design, a global theme will
 // have to be applied in the App.js to streamline and DRY
 
-function LoginPage() {
+function LoginPage(props) {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors },
   } = useForm({
     criteriaMode: 'all',
@@ -33,23 +33,22 @@ function LoginPage() {
 
   const [submitError, setSubmitError] = useState('');
 
-  const onSubmit = (data) => {
-    axios
-      .post(
-        '/api/auth/signin',
-        {
-          username: data.username,
-          password: data.password,
-        },
-        { headers: { 'X-Requested-With': 'XMLHttpRequest' } } // this is bad practice and needs to handled in the backend
-      )
+  const { setUser } = useContext(UserContext);
+
+  const onSubmit = async (data) => {
+    let res = AuthService.login(data);
+
+    res
       .then((res) => {
         setSubmitError('');
         if (res.status === 200) {
+          setUser({ auth: true });
           navigate('home', { replace: true });
         }
       })
       .catch((error) => {
+        console.log(error);
+        debugger;
         if (error.response.status === 500) {
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
@@ -79,6 +78,14 @@ function LoginPage() {
         >
           Shelter Volunteer App
         </Typography>
+
+        <Typography
+          variant="overline"
+          sx={{ textAlign: 'center', color: 'red' }}
+        >
+          {props.unauthed && 'Unauthorized: Please sign in to access'}
+        </Typography>
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <Stack spacing={1} margin={2}>
             <TextField
