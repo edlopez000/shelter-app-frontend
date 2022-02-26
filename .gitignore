@@ -24,3 +24,5 @@ yarn-error.log*
 
 /src/placeholderData
 /src/examples
+/src/activitiesPageStory.txt
+activitiesPageStory.txt
