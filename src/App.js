@@ -10,7 +10,6 @@ import { UserContext } from './components/UserContext';
 import { useState } from 'react';
 import SelectCat from './components/SelectCat';
 
-
 function App() {
   const [user, setUser] = useState({ auth: false });
   return (
