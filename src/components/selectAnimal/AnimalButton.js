@@ -11,13 +11,14 @@ import { useNavigate } from "react-router-dom";
 
 const AnimalButton = (props) => {
   const navigate = useNavigate();
-  const catActivities = "/catActivities" // link to catActivities
-  
+ 
+  const activities = "/" + props.type + "Activities";
+
   return (
     <ListItem
       disablePadding
       key={props.value}
-      onClick={() => navigate(catActivities)}
+      onClick={() => navigate(activities)}
     >
       <ListItemButton>
         <ListItemIcon>

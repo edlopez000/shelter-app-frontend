@@ -19,7 +19,7 @@ export default function CatActivities(props) {
         fontSize={19}
         fontWeight={"bold"}
       >
-        Dog Activities:
+        Cat Activities:
       </Typography>
 
       <List sx={{ width: "100%", maxWidth: 600 }}>
