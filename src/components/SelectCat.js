@@ -69,7 +69,7 @@ export default function SelectCat(props) {
           <Typography>
           Check the health status of the animal to determine handling protocols and follow best practices as laid out in the volunteer handbook.  
           </Typography>
-          <Button onClick={handleClose}>I will check</Button>
+          <Button onClick={handleClose}>Acknowledged</Button>
         </Box>
       </Modal>
     </Container>
