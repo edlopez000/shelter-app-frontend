@@ -9,6 +9,7 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import { UserContext } from './components/UserContext';
 import { useState } from 'react';
 import SelectCat from './components/SelectCat';
+import Activities from './components/Activities';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="home" element={<QuickLinks />} />
             <Route path="dog" element={<SelectDog />} />
             <Route path="cat" element={<SelectCat />} />
+            <Route path="activities" element={<Activities />} />
           </Route>
         </Routes>
       </UserContext.Provider>
