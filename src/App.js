@@ -9,12 +9,13 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import { UserContext } from './components/UserContext';
 import { useState } from 'react';
 import SelectCat from './components/SelectCat';
+import Housekeeping from './components/Housekeeping';
 
 
 function App() {
   const [user, setUser] = useState({ auth: false });
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" sx={{marginTop: 15}}>
       <ButtonAppBar />
       <UserContext.Provider value={{ user, setUser }}>
         <Routes>
@@ -23,6 +24,7 @@ function App() {
             <Route path="home" element={<QuickLinks />} />
             <Route path="dog" element={<SelectDog />} />
             <Route path="cat" element={<SelectCat />} />
+            <Route path="tasks" element={<Housekeeping />} />
           </Route>
         </Routes>
       </UserContext.Provider>

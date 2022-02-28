@@ -60,7 +60,7 @@ function LoginPage(props) {
   //  error.response.status gives you the 401 HTTP status
 
   return (
-    <Box marginTop={33}>
+    <Box marginTop={17}>
       <Stack spacing={1}>
         <SvgIcon
           component={DogHouse}

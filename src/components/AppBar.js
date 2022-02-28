@@ -9,7 +9,7 @@ import MenuButton from './MenuButton';
 export default function ButtonAppBar() {
   return (
     <Box sx={{ 
-      flexGrow: 1, marginBottom:10
+      flexGrow: 1, marginBottom:8
      }}>
       <AppBar >
         <Toolbar variant="dense" sx={{backgroundColor: 'darkblue'}}>
@@ -17,7 +17,7 @@ export default function ButtonAppBar() {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1 }}
+            sx={{ flexGrow: 1, 'font-weight':"bold", letterSpacing:1}}
           >Home</Typography>
           <Button color="inherit" sx={{'font-weight': 'bold'}}>Donate</Button>
         </Toolbar>
