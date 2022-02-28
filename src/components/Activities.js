@@ -9,13 +9,8 @@ import {
   Typography,
 } from "@mui/material";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-// import { useNavigate } from "react-router-dom";
 
-//TODO: Find out how to bind with specific dog id
-
-export default function Activities() {
-  // const navigate= useNavigate();
-
+export default function Activities(props) {
   return (
     <Container>
       <Typography
@@ -39,7 +34,7 @@ export default function Activities() {
 
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary="Enrichment"  />
+            <ListItemText primary="Enrichment" />
             <ArrowForwardIosSharpIcon fontSize="small" />
           </ListItemButton>
         </ListItem>

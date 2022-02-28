@@ -1,43 +1,36 @@
-import axios from 'axios';
-import AnimalButton from './selectAnimal/AnimalButton';
-import { Typography, List, Divider, Container } from '@mui/material';
-import { React, useState, useEffect } from 'react';
-import HistoryTable from './HistoryTable';
+import axios from "axios";
+import AnimalButton from "./selectAnimal/AnimalButton";
+import { Typography, List, Divider, Container } from "@mui/material";
+import * as React from "react";
+import HistoryTable from "./HistoryTable";
 
-export default function SelectDog() {
-  const [dogs, setDogs] = useState([]);
-  const dogData = dogs.filter((dogs) => dogs.species === 'dog');
-  const listDogs = () => {
-    axios
-      .get('/animals')
-      .then((res) => {
-        console.log(res.data);
-        setDogs(res.data);
-      })
-      .catch((error) => {
-        console.log('Something went wrong', error);
-      });
-  };
+export function SelectDog() {
+  const [dogsData, setDogsData] = React.useState([]);
 
-  useEffect(() => {
-    listDogs();
+  React.useEffect(() => {
+    async function getDogs() {
+      const res = await axios.get("/animals/species/dog");
+      setDogsData(res.data);
+    }
+
+    getDogs();
   }, []);
 
   return (
     <Container>
       <Typography
-        textAlign={'left'}
+        textAlign={"left"}
         letterSpacing={0.15}
         fontSize={19}
-        fontWeight={'bold'}
+        fontWeight={"bold"}
       >
         Select a dog:
       </Typography>
 
-      <List sx={{ width: '100%', maxWidth: 600 }}>
-        {dogData.map((dog) => (
+      <List sx={{ width: "100%", maxWidth: 600 }}>
+        {dogsData.map((dog) => (
           <>
-            <AnimalButton key={dog.id} type="dog" animalName={dog.name} />
+            <AnimalButton animalId={dog.id} type="dog" animalName={dog.name} />
             <Divider />
           </>
         ))}
