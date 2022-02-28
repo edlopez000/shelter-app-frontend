@@ -9,7 +9,9 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 import { UserContext } from "./components/UserContext";
 import { useState } from "react";
 import SelectCat from "./components/SelectCat";
-import Activities from "./components/Activities";
+import DogActivities from "./components/DogActivities";
+import CatActivities from "./components/CatActivities";
+
 
 function App() {
   const [user, setUser] = useState({ auth: false });
@@ -23,7 +25,9 @@ function App() {
             <Route path="home" element={<QuickLinks />} />
             <Route path="dog" element={<SelectDog />} />
             <Route path="cat" element={<SelectCat />} />
-            <Route path="activities" element={<Activities />} />
+            <Route path="dogActivities" element={<DogActivities />} />
+            <Route path="catActivities" element={<CatActivities />} />
+
           </Route>
         </Routes>
       </UserContext.Provider>
