@@ -20,7 +20,6 @@ export default function SelectDog() {
     p: 4,
   };
   const [open, setOpen] = useState(true);
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
 
