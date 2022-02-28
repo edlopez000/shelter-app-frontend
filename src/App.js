@@ -9,17 +9,13 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import { UserContext } from './components/UserContext';
 import { useState } from 'react';
 import SelectCat from './components/SelectCat';
-<<<<<<< HEAD
 import Housekeeping from './components/Housekeeping';
-
-=======
 import NotFoundPage from './components/NotFoundPage';
->>>>>>> bc7939d0dfa2ef3d61e0aed142a34f8b4f779207
 
 function App() {
   const [user, setUser] = useState({ auth: false });
   return (
-    <Container maxWidth="sm" sx={{marginTop: 15}}>
+    <Container maxWidth="sm" sx={{ marginTop: 15 }}>
       <ButtonAppBar />
       <UserContext.Provider value={{ user, setUser }}>
         <Routes>
