@@ -1,7 +1,8 @@
-import { Container, Typography } from "@mui/material";
-import React from "react";
+import { React } from "react";
 import HealthModal from "./HealthModal";
 import GetCats from "./selectAnimal/GetCats";
+
+import { Typography, Container } from "@mui/material";
 
 export default function SelectCat() {
   return (

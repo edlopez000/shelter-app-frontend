@@ -11,15 +11,17 @@ import { useState } from "react";
 import SelectCat from "./components/SelectCat";
 import DogActivities from "./components/DogActivities";
 import CatActivities from "./components/CatActivities";
-
+import Housekeeping from "./components/Housekeeping";
+import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
   const [user, setUser] = useState({ auth: false });
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" sx={{ marginTop: 15 }}>
       <ButtonAppBar />
       <UserContext.Provider value={{ user, setUser }}>
         <Routes>
+          <Route path="*" element={<NotFoundPage />} />
           <Route path="/" element={<LoginPage />} />
           <Route element={<ProtectedRoutes />}>
             <Route path="home" element={<QuickLinks />} />
@@ -27,7 +29,7 @@ function App() {
             <Route path="cat" element={<SelectCat />} />
             <Route path="dogActivities" element={<DogActivities />} />
             <Route path="catActivities" element={<CatActivities />} />
-
+            <Route path="tasks" element={<Housekeeping />} />
           </Route>
         </Routes>
       </UserContext.Provider>

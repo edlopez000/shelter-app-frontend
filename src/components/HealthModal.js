@@ -7,9 +7,8 @@ export default function HealthModal() {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    width: 300,
     bgcolor: "background.paper",
-    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
   };
@@ -20,13 +19,25 @@ export default function HealthModal() {
     <Container>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-          <Typography variant="h3">Contagion Alert!</Typography>
+          <Typography
+            variant="h5"
+            color={"red"}
+            fontWeight="bold"
+            textAlign={"center"}
+          >
+            Contagion Alert!
+          </Typography>
           <Typography>
             Check the health status of the animal to determine handling
-            protocols and follow best practices as laid out in the volunteer
-            handbook.
+            protocols. If the animal is contagious, follow best practices as
+            laid out in the volunteer handbook. Have you checked the health
+            status of this animal?
           </Typography>
-          <Button onClick={handleClose}>I will check</Button>
+          <Container sx={{ textAlign: "right", mt: 2 }}>
+            <Button onClick={handleClose} variant={"contained"}>
+              Yes
+            </Button>
+          </Container>
         </Box>
       </Modal>
     </Container>

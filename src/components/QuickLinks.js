@@ -28,8 +28,9 @@ export default function QuickLinks() {
         letterSpacing={0.15}
         fontSize={19}
         fontWeight={"bold"}
+        marginTop={4}
       >
-        Quick Links
+        Volunteer:
       </Typography>
 
       <List sx={{ width: "100%", maxWidth: 600 }}>
@@ -57,7 +58,7 @@ export default function QuickLinks() {
 
         <Divider />
 
-        <ListItem disablePadding>
+        <ListItem disablePadding onClick={() => navigate("/tasks")}>
           <ListItemButton>
             <ListItemIcon>
               <CleaningServicesIcon
