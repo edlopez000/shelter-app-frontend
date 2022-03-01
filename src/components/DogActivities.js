@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Container,
   Divider,
@@ -7,22 +7,23 @@ import {
   ListItemButton,
   ListItemText,
   Typography,
-} from "@mui/material";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+} from '@mui/material';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import HistoryTable from './HistoryTable';
 
 export default function Activities() {
   return (
     <Container>
       <Typography
-        textAlign={"left"}
+        textAlign={'left'}
         letterSpacing={0.15}
         fontSize={19}
-        fontWeight={"bold"}
+        fontWeight={'bold'}
       >
-        Dog Activities:
+        Dog Name Activities:
       </Typography>
 
-      <List sx={{ width: "100%", maxWidth: 600 }}>
+      <List sx={{ width: '100%', maxWidth: 600 }}>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemText primary="Dog Walking" />
@@ -40,25 +41,8 @@ export default function Activities() {
         </ListItem>
 
         <Divider />
-
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary="Fear Free Training" />
-            <ArrowForwardIosSharpIcon fontSize="small" />
-          </ListItemButton>
-        </ListItem>
-
-        <Divider />
-
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary="Running Team" />
-            <ArrowForwardIosSharpIcon fontSize="small" />
-          </ListItemButton>
-        </ListItem>
-
-        <Divider />
       </List>
+      <HistoryTable />
     </Container>
   );
 }

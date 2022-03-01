@@ -30,7 +30,7 @@ function HistoryTable() {
         fontSize={19}
         fontWeight={'bold'}
       >
-        History
+        Animal Name History
       </Typography>
       <TableContainer component={Paper}>
         <Table>
