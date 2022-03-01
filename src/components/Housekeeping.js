@@ -34,7 +34,6 @@ export default function Housekeeping() {
     const submitTasks = async (event) => {
         let res = axios.post("/session", {
           volunteerId: 1,
-          animalId: 1,
           fPlaying: true,
           hGroundskeeping: true
         })
