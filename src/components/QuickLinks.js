@@ -12,7 +12,6 @@ import {
 import UserGreeting from "./quicklinks/UserGreeting";
 import AnimalIcon from "../assets/AnimalIcon";
 import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
-
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import { useNavigate } from "react-router-dom";
 
