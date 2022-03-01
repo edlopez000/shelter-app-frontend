@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 
-export default function Activities(props) {
+export default function Activities() {
   return (
     <Container>
       <Typography
