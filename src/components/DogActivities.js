@@ -1,14 +1,5 @@
 import * as React from 'react';
-import {
-  Container,
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Typography,
-} from '@mui/material';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import { Button, Container, Stack, Typography } from '@mui/material';
 import HistoryTable from './HistoryTable';
 
 export default function Activities() {
@@ -20,29 +11,21 @@ export default function Activities() {
         fontSize={19}
         fontWeight={'bold'}
       >
-        Dog Name Activities:
+        $DogName Activities
       </Typography>
 
-      <List sx={{ width: '100%', maxWidth: 600 }}>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary="Dog Walking" />
-            <ArrowForwardIosSharpIcon fontSize="small" />
-          </ListItemButton>
-        </ListItem>
+      <Stack direction={'column'} spacing={10}>
+        <Stack direction="row" justifyContent="space-evenly" spacing={10}>
+          <Button variant="outlined" size="large">
+            Dog Walking
+          </Button>
+          <Button variant="outlined" size="large">
+            Enrichment
+          </Button>
+        </Stack>
 
-        <Divider />
-
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary="Enrichment" />
-            <ArrowForwardIosSharpIcon fontSize="small" />
-          </ListItemButton>
-        </ListItem>
-
-        <Divider />
-      </List>
-      <HistoryTable />
+        <HistoryTable />
+      </Stack>
     </Container>
   );
 }

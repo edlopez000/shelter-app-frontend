@@ -1,17 +1,28 @@
-import * as React from 'react';
-import {
-  Container,
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Typography,
-} from '@mui/material';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import { React, useState } from 'react';
+import { Container, Stack, Typography, Button } from '@mui/material';
 import HistoryTable from './HistoryTable';
+import EnrichmentModal from './Modals/Enrichment';
 
 export default function CatActivities() {
+  const [open, setOpen] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleDialogOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpenDialog(true);
+  };
+
+  const handleClose = () => {
+    setOpenDialog(false);
+  };
+
   return (
     <Container>
       <Typography
@@ -20,29 +31,21 @@ export default function CatActivities() {
         fontSize={19}
         fontWeight={'bold'}
       >
-        Cat Name Activities:
+        $CatName Activities:
       </Typography>
 
-      <List sx={{ width: '100%', maxWidth: 600 }}>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary="Cat Care" />
-            <ArrowForwardIosSharpIcon fontSize="small" />
-          </ListItemButton>
-        </ListItem>
-
-        <Divider />
-
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary="Enrichment" />
-            <ArrowForwardIosSharpIcon fontSize="small" />
-          </ListItemButton>
-        </ListItem>
-
-        <Divider />
-      </List>
-      <HistoryTable />
+      <Stack direction="column" spacing={10}>
+        <Stack direction="row" justifyContent="space-evenly" spacing={10}>
+          <Button variant="outlined" size="large">
+            Cat Care
+          </Button>
+          <Button variant="outlined" size="large" onClick={handleDialogOpen}>
+            Enrichment
+          </Button>
+          <EnrichmentModal open={open} handleClose={handleDialogClose} />
+        </Stack>
+        <HistoryTable />
+      </Stack>
     </Container>
   );
 }
