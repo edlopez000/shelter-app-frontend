@@ -1,23 +1,22 @@
 import {
   Button,
+  Checkbox,
   Dialog,
-  DialogTitle,
+  DialogActions,
   DialogContent,
   DialogContentText,
-  DialogActions,
-  Typography,
-  FormGroup,
-  Checkbox,
+  DialogTitle,
   FormControlLabel,
+  FormGroup,
+  Typography,
 } from '@mui/material';
 import { React, useState } from 'react';
 
-export default function EnrichmentModal({ open, handleClose }) {
+export default function CatCare({ open, handleClose }) {
   const [selections, setSelections] = useState({
-    treats: false,
-    toys: false,
-    playing: false,
-    cuddleTime: false,
+    cleanKennel: false,
+    changeLitter: false,
+    changeFoodWater: false,
   });
 
   const handleSelections = (event) => {
@@ -37,13 +36,13 @@ export default function EnrichmentModal({ open, handleClose }) {
     Object.keys(selections).forEach((item) => (selections[item] = false));
   };
 
-  const { treats, toys, playing, cuddleTime } = selections;
+  const { cleanKennel, changeLitter, changeFoodWater } = selections;
 
   return (
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>
         <Typography letterSpacing={0.15} fontSize={19} fontWeight={'bold'}>
-          Enrichment Options
+          Cat Care Options
         </Typography>
       </DialogTitle>
       <DialogContent>
@@ -52,42 +51,32 @@ export default function EnrichmentModal({ open, handleClose }) {
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={treats}
+                  checked={cleanKennel}
                   onChange={handleSelections}
-                  name="treats"
+                  name="cleanKennel"
                 />
               }
-              label={'Treats'}
+              label={'Clean Kennel'}
             />
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={toys}
+                  checked={changeLitter}
                   onChange={handleSelections}
-                  name="toys"
+                  name="changeLitter"
                 />
               }
-              label={'Toys'}
+              label={'Change Litter'}
             />
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={playing}
+                  checked={changeFoodWater}
                   onChange={handleSelections}
-                  name="playing"
+                  name="changeFoodWater"
                 />
               }
-              label={'Playing'}
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={cuddleTime}
-                  onChange={handleSelections}
-                  name="cuddleTime"
-                />
-              }
-              label={'Cuddle Time'}
+              label={'Change Food/Water'}
             />
           </FormGroup>
         </DialogContentText>

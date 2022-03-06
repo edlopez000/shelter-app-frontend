@@ -1,8 +1,19 @@
-import * as React from 'react';
+import { React, useState } from 'react';
 import { Button, Container, Stack, Typography } from '@mui/material';
 import HistoryTable from './HistoryTable';
+import EnrichmentModal from './Modals/Enrichment';
 
-export default function Activities() {
+export default function DogActivities() {
+  const [open, setOpen] = useState(false);
+
+  const handleDialogOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Container>
       <Typography
@@ -19,9 +30,10 @@ export default function Activities() {
           <Button variant="outlined" size="large">
             Dog Walking
           </Button>
-          <Button variant="outlined" size="large">
+          <Button variant="outlined" size="large" onClick={handleDialogOpen}>
             Enrichment
           </Button>
+          <EnrichmentModal open={open} handleClose={handleDialogClose} />
         </Stack>
 
         <HistoryTable />

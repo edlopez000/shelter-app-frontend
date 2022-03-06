@@ -2,10 +2,10 @@ import { React, useState } from 'react';
 import { Container, Stack, Typography, Button } from '@mui/material';
 import HistoryTable from './HistoryTable';
 import EnrichmentModal from './Modals/Enrichment';
+import CatCare from './Modals/CatCare';
 
 export default function CatActivities() {
   const [open, setOpen] = useState(false);
-  const [openDialog, setOpenDialog] = useState(false);
 
   const handleDialogOpen = () => {
     setOpen(true);
@@ -13,14 +13,6 @@ export default function CatActivities() {
 
   const handleDialogClose = () => {
     setOpen(false);
-  };
-
-  const handleOpen = () => {
-    setOpenDialog(true);
-  };
-
-  const handleClose = () => {
-    setOpenDialog(false);
   };
 
   return (
@@ -36,13 +28,14 @@ export default function CatActivities() {
 
       <Stack direction="column" spacing={10}>
         <Stack direction="row" justifyContent="space-evenly" spacing={10}>
-          <Button variant="outlined" size="large">
+          <Button variant="outlined" size="large" onClick={handleDialogOpen}>
             Cat Care
           </Button>
           <Button variant="outlined" size="large" onClick={handleDialogOpen}>
             Enrichment
           </Button>
           <EnrichmentModal open={open} handleClose={handleDialogClose} />
+          <CatCare open={open} handleClose={handleDialogClose} />
         </Stack>
         <HistoryTable />
       </Stack>
