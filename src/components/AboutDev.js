@@ -15,11 +15,13 @@ const AboutDev = () => {
       />
       <Typography fontSize={17} align='center' fontWeight={'bold'}>
        Designed, built, and cried over by:
-       <p>Saad Sharieff</p>
        <p>Deborah-Lynn Peach Paulison</p>
        <p>Stephanie Peets</p>
        <p>Edward Lopez-Ramos</p>
        <p>Henry Zhang</p>
+
+       <p>Project Manager and Moral Guide:</p>
+       <p>Saad Sharieff</p>
       </Typography>
     </Container>
   );

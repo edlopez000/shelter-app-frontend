@@ -1,17 +1,26 @@
 import axios from "axios";
-import { Button } from "@mui/material";
-import { Typography, List, Divider, Container,
-FormGroup, FormControlLabel, Checkbox,
+import { 
+  Typography, 
+  Divider, 
+  Container,
+  FormGroup, 
+  FormControlLabel, 
+  Checkbox, 
+  Button,
+  Snackbar,
+  IconButton
   } from "@mui/material";
-import { React, useEffect, useState } from "react";
+import { React, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { blue } from "@mui/material/colors";
+import { UserContext } from "./UserContext";
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
 export default function Housekeeping(props) {
     const navigate = useNavigate();
-   
+    const { user } = useContext(UserContext);
     const [selections, setSelections] = useState({
       cleanGroomRoom: false,
       emptyWashKongs: false,
@@ -19,8 +28,41 @@ export default function Housekeeping(props) {
       laundry: false,
       groundsKeeping: false
     });
-    const [volunteerId, setVolunteerId] = useState('');
+
+    //for later full auth
+    // const [volunteerId, setVolunteerId] = useState('');
     const [submitError, setSubmitError] = useState('');
+    const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+    navigate('/home');
+  };
+
+  const action = (
+    <div>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        CLOSE
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </div>
+  );
+   
 
     const { 
       cleanGroomRoom, 
@@ -29,10 +71,6 @@ export default function Housekeeping(props) {
       laundry,
       groundsKeeping
             } = selections;
-
-    
-
-
 
     const taskList = [
       "Clean Groom Room", 
@@ -51,7 +89,7 @@ export default function Housekeeping(props) {
   
     const submitTasks = async () => {
         let res = axios.post("/housekeeping", {
-          volunteerId: volunteerId,
+          volunteerId:user.volunteerId,
           cleanGroomRoom: selections.cleanGroomRoom,
           emptyWashKongs: selections.emptyWashKongs,
           organizeVolArea: selections.organizeVolArea,
@@ -61,8 +99,7 @@ export default function Housekeeping(props) {
         res
           .then((res) => {
             if (res.status === 200) {
-            console.log(res);
-            navigate('/home');
+           ;
             }
           })
           .catch((error) => {
@@ -76,9 +113,9 @@ export default function Housekeeping(props) {
       };
 
       //need authService and JWT 
-      useEffect(() => {
-        setVolunteerId('35a48823-f4bb-4398-9a0b-9c6b90d07173');
-        }, []);
+      // useEffect(() => {
+      //   setVolunteerId('35a48823-f4bb-4398-9a0b-9c6b90d07173');
+      //   }, []);
 
   return (
     <Container>
@@ -127,7 +164,7 @@ export default function Housekeeping(props) {
 
 
             <Button     
-             onClick={submitTasks}
+             onClick={()=>{submitTasks(); handleClick()}}
             variant= "contained"
             type="submit"
             sx={{
@@ -138,6 +175,14 @@ export default function Housekeeping(props) {
               }}>Submit</Button>
     
         </FormGroup>
+
+        <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message="Housetasks Logged! Thank you for your help!"
+        action={action}
+      />
 
         <Typography sx={{ color: 'red', textAlign: 'center', margin: 3 }}>
               {submitError && `${submitError}`}
