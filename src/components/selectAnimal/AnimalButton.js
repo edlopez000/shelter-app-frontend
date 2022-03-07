@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-} from "@mui/material";
-import AnimalIcon from "../../assets/AnimalIcon";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-import { useNavigate } from "react-router-dom";
+} from '@mui/material';
+import AnimalIcon from '../../assets/AnimalIcon';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import { useNavigate } from 'react-router-dom';
 
 const AnimalButton = (props) => {
   const navigate = useNavigate();
