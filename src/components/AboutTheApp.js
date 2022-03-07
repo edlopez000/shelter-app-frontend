@@ -3,7 +3,7 @@ import { Container, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { ReactComponent as DogHouse } from '../assets/dog-house.svg';
 
-const AboutDev = () => {
+const AboutTheApp = () => {
   return (
     <Container align='center' flexGrow='1' sx={{align: 'center'}}>
       <Box
@@ -14,15 +14,13 @@ const AboutDev = () => {
           height: '30vh' }}
       />
       <Typography fontSize={17} align='center' fontWeight={'bold'}>
-       Designed, built, and cried over by:
-       <p>Saad Sharieff</p>
-       <p>Deborah-Lynn Peach Paulison</p>
-       <p>Stephanie Peets</p>
-       <p>Edward Lopez-Ramos</p>
-       <p>Henry Zhang</p>
+       <p>Bunny and Kitty, being best friends,</p>
+       <p>Together forever, the fun never ends,</p>
+       <p>Solving mysteries, one hug at a time,</p>
+       <p>Bunny and Kitty- two of a kind!</p>
       </Typography>
     </Container>
   );
 };
 
-export default AboutDev;
+export default AboutTheApp;

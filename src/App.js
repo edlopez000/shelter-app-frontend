@@ -15,6 +15,7 @@ import Housekeeping from "./components/Housekeeping";
 import NotFoundPage from "./components/NotFoundPage";
 import ResourceLinks from "./components/ResourceLinks";
 import AboutDev from "./components/AboutDev";
+import AboutTheApp from "./components/AboutTheApp";
 
 function App() {
   const [user, setUser] = useState({ auth: false });
@@ -33,8 +34,9 @@ function App() {
             <Route path="catActivities" element={<CatActivities />} />
             <Route path="tasks" element={<Housekeeping />} />
             <Route path="links" element={<ResourceLinks/>} />
-            <Route path="about" element={<AboutDev />} />
-          </Route>ResourceLinks
+            <Route path="devs" element={<AboutDev />} />
+            <Route path="about" element={<AboutTheApp />} />
+          </Route>
         </Routes>
       </UserContext.Provider>
     </Container>
