@@ -20,12 +20,13 @@ export default function HealthModal() {
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
           <Typography
-            variant="h5"
+            variant="h4"
             color={"red"}
             fontWeight="bold"
             textAlign={"center"}
           >
             Contagion Alert!
+            <p></p>
           </Typography>
           <Typography>
             Check the health status of the animal to determine handling

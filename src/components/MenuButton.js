@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
@@ -37,14 +38,16 @@ export default function BasicMenu() {
           disablePadding: 'true',
         }}
       >
-        <MenuItem onClick={handleClose}>About</MenuItem>
-        <MenuItem onClick={handleClose}>The Rural Juror</MenuItem>
-        <MenuItem onClick={handleClose}>Lawns and Jawns</MenuItem>
-        <MenuItem onClick={handleClose}>Wumbo</MenuItem>
-        <MenuItem onClick={handleClose}>Help</MenuItem>
-        <MenuItem onClick={handleClose}>Contact</MenuItem>
-        <MenuItem onClick={handleClose}>Developers</MenuItem>
+        <MenuItem component={Link} to="/home">Home</MenuItem>
+        <MenuItem component={Link} to="/dog">Dog</MenuItem>
+        <MenuItem component={Link} to="/cat">Cat</MenuItem>
+        <MenuItem component={Link} to="/links">Resources</MenuItem>
+        <MenuItem component={Link} to="/contact">Contact</MenuItem>
+        <MenuItem component={Link} to="/developers">Developers</MenuItem>
+        <MenuItem component={Link} to="/logout">Logout</MenuItem>
       </Menu>
     </div>
   );
-}
+ }
+ 
+
