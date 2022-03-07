@@ -12,7 +12,6 @@ import {
 import UserGreeting from "./quicklinks/UserGreeting";
 import AnimalIcon from "../assets/AnimalIcon";
 import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
-
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import { useNavigate } from "react-router-dom";
 
@@ -30,7 +29,7 @@ export default function QuickLinks() {
         fontWeight={"bold"}
         marginTop={4}
       >
-         Volunteer:
+        Volunteer:
       </Typography>
 
       <List sx={{ width: "100%", maxWidth: 600 }}>
@@ -70,7 +69,7 @@ export default function QuickLinks() {
             <ListItemText
               primary="Housekeeping / Laundry"
               secondary="Handle housekeeping needs!"
-              />
+            />
             <ArrowForwardIosSharpIcon fontSize="small" />
           </ListItemButton>
         </ListItem>
