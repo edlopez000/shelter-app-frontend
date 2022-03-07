@@ -40,9 +40,9 @@ export default function BasicMenu() {
         }}
       >
         <MenuItem onClick={() => {navigate('/about'); handleClose()}}>About</MenuItem>
-        <MenuItem onClick={() => {navigate('/home'); handleClose()}}>The Rural Juror</MenuItem>
-        <MenuItem onClick={() => {navigate('/dog'); handleClose()}}>Lawns and Jawns</MenuItem>
-        <MenuItem onClick={() => {navigate('/cat'); handleClose()}}>Cats The Musical</MenuItem>
+        <MenuItem onClick={() => {navigate('/home'); handleClose()}}>Home</MenuItem>
+        <MenuItem onClick={() => {navigate('/dog'); handleClose()}}>Dogs and Jawns</MenuItem>
+        <MenuItem onClick={() => {navigate('/cat'); handleClose()}}>Cats: The Musical</MenuItem>
         <MenuItem onClick={() => {navigate('/links'); handleClose()}}>Resources</MenuItem>
         <MenuItem onClick={() => {navigate('/devs'); handleClose()}}>Developers</MenuItem>
       </Menu>
