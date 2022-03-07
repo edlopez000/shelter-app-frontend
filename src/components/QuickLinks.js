@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Container,
   Divider,
@@ -8,12 +8,12 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
-} from "@mui/material";
-import UserGreeting from "./quicklinks/UserGreeting";
-import AnimalIcon from "../assets/AnimalIcon";
-import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
-import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-import { useNavigate } from "react-router-dom";
+} from '@mui/material';
+import UserGreeting from './quicklinks/UserGreeting';
+import AnimalIcon from '../assets/AnimalIcon';
+import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import { useNavigate } from 'react-router-dom';
 
 export default function QuickLinks() {
   const navigate = useNavigate();
@@ -23,17 +23,17 @@ export default function QuickLinks() {
       <UserGreeting />
 
       <Typography
-        textAlign={"left"}
+        textAlign={'left'}
         letterSpacing={0.15}
         fontSize={19}
-        fontWeight={"bold"}
+        fontWeight={'bold'}
         marginTop={4}
       >
         Volunteer:
       </Typography>
 
-      <List sx={{ width: "100%", maxWidth: 600 }}>
-        <ListItem disablePadding onClick={() => navigate("/dog")}>
+      <List sx={{ width: '100%', maxWidth: 600 }}>
+        <ListItem disablePadding onClick={() => navigate('/dog')}>
           <ListItemButton>
             <ListItemIcon>
               <AnimalIcon name="dog" />
@@ -45,7 +45,7 @@ export default function QuickLinks() {
 
         <Divider />
 
-        <ListItem disablePadding onClick={() => navigate("/cat")}>
+        <ListItem disablePadding onClick={() => navigate('/cat')}>
           <ListItemButton>
             <ListItemIcon>
               <AnimalIcon name="cat" />
@@ -57,7 +57,7 @@ export default function QuickLinks() {
 
         <Divider />
 
-        <ListItem disablePadding onClick={() => navigate("/tasks")}>
+        <ListItem disablePadding onClick={() => navigate('/tasks')}>
           <ListItemButton>
             <ListItemIcon>
               <CleaningServicesIcon
