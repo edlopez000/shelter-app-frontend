@@ -24,7 +24,7 @@ export default function ButtonAppBar() {
           >
             Home
           </Typography>
-          <Button color="inherit" sx={{ "font-weight": "bold" }}>
+          <Button variant="outlined" target="_blank" href="https://www.amazon.com/hz/wishlist/ls/1F0WL8J9XEG5L/ref=nav_wishlist_lists_1?_encoding=UTF8&type=wishlist" color="inherit" sx={{ "font-weight": "bold" }}>
             Donate
           </Button>
         </Toolbar>

@@ -13,6 +13,7 @@ import DogActivities from "./components/DogActivities";
 import CatActivities from "./components/CatActivities";
 import Housekeeping from "./components/Housekeeping";
 import NotFoundPage from "./components/NotFoundPage";
+import ResourceLinks from "./components/ResourceLinks"
 
 function App() {
   const [user, setUser] = useState({ auth: false });
@@ -30,6 +31,7 @@ function App() {
             <Route path="dogActivities" element={<DogActivities />} />
             <Route path="catActivities" element={<CatActivities />} />
             <Route path="tasks" element={<Housekeeping />} />
+            <Route path="links" element={<ResourceLinks/>} />
           </Route>
         </Routes>
       </UserContext.Provider>
