@@ -25,6 +25,7 @@ export default function CatActivities() {
         letterSpacing={0.15}
         fontSize={19}
         fontWeight={'bold'}
+        marginBottom={10}
       >
         $CatName Activities:
       </Typography>

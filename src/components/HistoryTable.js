@@ -29,6 +29,7 @@ function HistoryTable() {
         letterSpacing={0.15}
         fontSize={19}
         fontWeight={'bold'}
+        marginBottom={3}
       >
         $AnimalName History
       </Typography>

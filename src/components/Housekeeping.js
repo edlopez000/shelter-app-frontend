@@ -9,10 +9,29 @@ import { blue } from "@mui/material/colors";
 
 
 
-export default function Housekeeping() {
+export default function Housekeeping(props) {
     const navigate = useNavigate();
-    const [checked, setChecked] = useState([]);
+   
+    const [selections, setSelections] = useState({
+      cleanGroomRoom: false,
+      emptyWashKongs: false,
+      organizeVolArea: false,
+      laundry: false,
+      groundsKeeping: false
+    });
+    const [volunteerId, setVolunteerId] = useState('');
     const [submitError, setSubmitError] = useState('');
+
+    const { 
+      cleanGroomRoom, 
+      emptyWashKongs, 
+      organizeVolArea,
+      laundry,
+      groundsKeeping
+            } = selections;
+
+    
+
 
 
     const taskList = [
@@ -22,28 +41,28 @@ export default function Housekeeping() {
       "Laundry",
       "Groundskeeping"
     ]
-
-    // const submitValue = [
-    //     "hCleanGroomRoom",
-    //     "hEmptyWashKongs",
-    //     hOrganizeVolArea,
-    //     hLaundry,
-    //     hGroundskeeping
-    // ]
   
-    const submitTasks = async (event) => {
-        let res = axios.post("/session", {
-          volunteerId: 1,
-          fPlaying: true,
-          hGroundskeeping: true
-        })
-
-        setChecked(event.target.checked)
+    const handleSelections = (event) => {
+      setSelections({
+        ...selections,
+        [event.target.name]: event.target.checked,
+      });
+    };
+  
+    const submitTasks = async () => {
+        let res = axios.post("/housekeeping", {
+          volunteerId: volunteerId,
+          cleanGroomRoom: selections.cleanGroomRoom,
+          emptyWashKongs: selections.emptyWashKongs,
+          organizeVolArea: selections.organizeVolArea,
+          laundry: selections.laundry,
+          groundsKeeping: selections.groundsKeeping
+        });
         res
           .then((res) => {
             if (res.status === 200) {
             console.log(res);
-            navigate('home');
+            navigate('/home');
             }
           })
           .catch((error) => {
@@ -55,6 +74,11 @@ export default function Housekeeping() {
             }
           });
       };
+
+      //need authService and JWT 
+      useEffect(() => {
+        setVolunteerId('35a48823-f4bb-4398-9a0b-9c6b90d07173');
+        }, []);
 
   return (
     <Container>
@@ -69,16 +93,37 @@ export default function Housekeeping() {
 
      
         <FormGroup   sx={{ width: "100%", maxWidth: 500, alignContent: "center", marginTop: 5}}>
-            <FormControlLabel control={<Checkbox onChange={checked} value={true} sx={{color:blue}}/>} 
+            <FormControlLabel 
+            control={<Checkbox 
+              onChange={handleSelections} 
+              checked={cleanGroomRoom} 
+              name="cleanGroomRoom"
+              sx={{color:blue}}/>} 
             label={taskList[0]} sx={{ margin: 1}} />
             <Divider />
-            <FormControlLabel control={<Checkbox />} label={taskList[1]} sx={{ margin: 1}}/>
+            <FormControlLabel control={<Checkbox 
+              onChange={handleSelections} 
+              checked={emptyWashKongs} 
+              name="emptyWashKongs"
+              sx={{color:blue}}/>} label={taskList[1]} sx={{ margin: 1}}/>
             <Divider />
-            <FormControlLabel control={<Checkbox />} label={taskList[2]} sx={{ margin: 1}} />
+            <FormControlLabel control={<Checkbox 
+              onChange={handleSelections} 
+              checked={organizeVolArea} 
+              name="organizeVolArea"
+              sx={{color:blue}}/>} label={taskList[2]} sx={{ margin: 1}} />
             <Divider />
-            <FormControlLabel control={<Checkbox />} label={taskList[3]} sx={{ margin: 1}}/>
+            <FormControlLabel control={<Checkbox 
+              onChange={handleSelections} 
+              checked={laundry} 
+              name="laundry"
+              sx={{color:blue}}/>} label={taskList[3]} sx={{ margin: 1}}/>
             <Divider />
-            <FormControlLabel control={<Checkbox />} label={taskList[4]} sx={{ margin: 1}}/>
+            <FormControlLabel control={<Checkbox 
+              onChange={handleSelections} 
+              checked={groundsKeeping} 
+              name="groundsKeeping"
+              sx={{color:blue}} />} label={taskList[4]} sx={{ margin: 1}}/>
 
 
             <Button     
