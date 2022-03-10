@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
@@ -39,13 +40,16 @@ export default function BasicMenu() {
           disablePadding: 'true',
         }}
       >
-        <MenuItem onClick={() => {navigate('/about'); handleClose()}}>About</MenuItem>
-        <MenuItem onClick={() => {navigate('/home'); handleClose()}}>Home</MenuItem>
-        <MenuItem onClick={() => {navigate('/dog'); handleClose()}}>Dogs and Jawns</MenuItem>
-        <MenuItem onClick={() => {navigate('/cat'); handleClose()}}>Cats: The Musical</MenuItem>
-        <MenuItem onClick={() => {navigate('/links'); handleClose()}}>Resources</MenuItem>
-        <MenuItem onClick={() => {navigate('/devs'); handleClose()}}>Developers</MenuItem>
+        <MenuItem component={Link} to="/home">Home</MenuItem>
+        <MenuItem component={Link} to="/dog">Dog</MenuItem>
+        <MenuItem component={Link} to="/cat">Cat</MenuItem>
+        <MenuItem component={Link} to="/links">Resources</MenuItem>
+        <MenuItem component={Link} to="/about">Contact</MenuItem>
+        <MenuItem component={Link} to="/devs">Developers</MenuItem>
+        <MenuItem component={Link} to="/logout">Logout</MenuItem>
       </Menu>
     </div>
   );
-}
+ }
+ 
+
