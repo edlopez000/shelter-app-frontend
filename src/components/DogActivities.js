@@ -1,17 +1,20 @@
-import * as React from 'react';
-import {
-  Container,
-  Divider,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Typography,
-} from '@mui/material';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import { React, useState } from 'react';
+import { Button, Container, Stack, Typography } from '@mui/material';
 import HistoryTable from './HistoryTable';
+import EnrichmentModal from './Modals/Enrichment';
+import DogWalking from './Modals/DogWalking';
 
-export default function Activities() {
+export default function DogActivities(props) {
+  const [open, setOpen] = useState({ dog: false, enrich: false});
+
+  const handleDialogOpen = (event) => {
+    setOpen({[event.target.name]: true});
+  };
+
+  const handleDialogClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Container>
       <Typography
@@ -19,30 +22,31 @@ export default function Activities() {
         letterSpacing={0.15}
         fontSize={19}
         fontWeight={'bold'}
+        marginBottom={10}
       >
-        Dog Name Activities:
+        {props.animalName} Activities
       </Typography>
 
-      <List sx={{ width: '100%', maxWidth: 600 }}>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary="Dog Walking" />
-            <ArrowForwardIosSharpIcon fontSize="small" />
-          </ListItemButton>
-        </ListItem>
+      <Stack direction="column" spacing={10}>
+        <Stack direction="row" justifyContent="space-evenly" spacing={10}>
+          <Button 
+          variant="outlined" 
+          size="large"
+          onClick={handleDialogOpen}
+          name={'dog'}
+          >
+            Dog Walking
+          </Button>
+          <Button variant="outlined" size="large" onClick={handleDialogOpen}
+          name={'enrich'}>
+            Enrichment
+          </Button>
+          <EnrichmentModal open={open.enrich} handleClose={handleDialogClose} />
+          <DogWalking open={open.dog} handleClose={handleDialogClose} />
+        </Stack>
 
-        <Divider />
-
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary="Enrichment" />
-            <ArrowForwardIosSharpIcon fontSize="small" />
-          </ListItemButton>
-        </ListItem>
-
-        <Divider />
-      </List>
-      <HistoryTable />
+        <HistoryTable />
+      </Stack>
     </Container>
   );
 }

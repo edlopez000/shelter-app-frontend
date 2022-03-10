@@ -1,8 +1,11 @@
 import { Typography } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../UserContext';
 
 const UserGreeting = () => {
-  const userName = 'Peach';
+  const { user } = useContext(UserContext);
+
+  console.log(user);
 
   return (
     <Typography
@@ -11,7 +14,7 @@ const UserGreeting = () => {
       fontSize={19}
       fontWeight={'bold'}
     >
-      Hi {userName}!
+      Hi {user.firstName}!
     </Typography>
   );
 };

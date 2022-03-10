@@ -4,13 +4,16 @@ import { Box } from '@mui/system';
 
 const NotFoundPage = () => {
   return (
-    <Container>
+    <Container align='center' flexGrow='1' sx={{align: 'center', flexGrow: 1}}>
       <Box
         component="img"
         src="https://i.imgur.com/aU6INii.jpeg"
-        sx={{ height: '50vh' }}
+        sx={{ 
+          flexGrow: 1,
+          align: 'center',
+          height: '50vh' }}
       />
-      <Typography>
+      <Typography align='center'>
         Nobody's purrrrfect! This page could not be found!
       </Typography>
     </Container>

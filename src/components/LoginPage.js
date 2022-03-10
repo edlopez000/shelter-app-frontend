@@ -42,13 +42,18 @@ function LoginPage(props) {
       .then((res) => {
         setSubmitError('');
         if (res.status === 200) {
-          setUser({ auth: true });
+          console.log(res.data);
+          setUser({
+            auth: true,
+            firstName: res.data.firstName,
+            lastName: res.data.lastName,
+            volunteerId: res.data.id,
+          });
           navigate('home', { replace: true });
         }
       })
       .catch((error) => {
         console.log(error);
-        debugger;
         if (error.response.status === 500) {
           setSubmitError('Something went wrong. Please try submitting again.');
         } else {
