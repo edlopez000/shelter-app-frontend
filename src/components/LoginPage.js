@@ -35,6 +35,13 @@ function LoginPage(props) {
 
   const { setUser } = useContext(UserContext);
 
+  //*IN THEORY* for a registration page, it should, after registering
+  //as a User, lead you to Login. Then that insert at AuthController
+  //if User.volunteer=null at login, redirect to a create profile page,
+  //which will map a PUT request to a createVoluneer, which will
+  //then update the User data to attach a Volunteer, which can then set Usercontext
+  //to then allow front to use volunteerId
+
   const onSubmit = async (data) => {
     let res = AuthService.login(data);
 
